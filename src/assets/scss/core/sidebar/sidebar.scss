@@ -123,7 +123,7 @@ sidebar navigation
                 color: $sidebar-text;
                 padding:$sidebar-link-padding;
                 display: flex;
-                white-space: nowrap; 
+                white-space: nowrap;
                 align-items: center;
                 line-height: 25px;
                 font-size: 15px;
@@ -155,7 +155,7 @@ sidebar navigation
            &.active > .sidebar-link{
                color: $info;
            }
-           
+
         }
         /*******************
          Small cap
@@ -180,15 +180,15 @@ sidebar navigation
 /*******************
  common m-p removed
 ******************/
-.sidebar-nav{
-    ul {
-        margin: 0px;
-        padding: 0px;
-        li {
-            list-style: none;
-        }
-    }
-}
+//.sidebar-nav{
+//    ul {
+//        margin: 0px;
+//        padding: 0px;
+//        li {
+//            list-style: none;
+//        }
+//    }
+//}
 .collapse.in {
     display: block;
 }
@@ -230,7 +230,7 @@ User Profile
 ******************/
 .user-profile{
     padding: 15px;
-    
+
     .user-content, .user-name, .user-email{
         color:$theme-light;
         overflow: hidden;

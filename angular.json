@@ -19,12 +19,18 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
+            "allowedCommonJsDependencies": [
+              "rxjs-compat",
+              "rxjs",
+              "ng2-charts",
+              "chart.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/assets/scss/style.scss"
             ],
             "scripts": []
           },

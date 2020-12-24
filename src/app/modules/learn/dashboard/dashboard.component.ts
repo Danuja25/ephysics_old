@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
+import {PerfectScrollbarConfigInterface} from 'ngx-perfect-scrollbar';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,13 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   public showMobileMenu = false;
   public expandLogo = false;
   public sidebartype = 'full';
+  public config: PerfectScrollbarConfigInterface = {};
+  public innerWidth: number=0;
+  public defaultSidebar='';
 
   ngOnInit(): void {
+    if (this.router.url === '/') {
+      this.router.navigate(['/starter']);
+    }
+    this.defaultSidebar = this.sidebartype;
+    this.handleSidebar();
   }
 
   toggleSidebarType() {
@@ -27,6 +37,24 @@ export class DashboardComponent implements OnInit {
         break;
 
       default:
+    }
+  }
+
+  Logo() {
+    this.expandLogo = !this.expandLogo;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event:string) {
+    this.handleSidebar();
+  }
+
+  handleSidebar() {
+    this.innerWidth = window.innerWidth;
+    if (this.innerWidth < 1170) {
+      this.sidebartype = 'mini-sidebar';
+    } else {
+      this.sidebartype = this.defaultSidebar;
     }
   }
 
